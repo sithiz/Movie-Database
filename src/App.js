@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+const welcome = 'Welcome to react'
 
 function App() {
   return (
@@ -8,8 +10,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> and save to reload. <Welcome />
         </p>
+        <Welcome text={welcome}/>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -23,4 +26,12 @@ function App() {
   );
 }
 
+class Welcome extends Component {
+  render() {
+    const { text } = this.props;
+    return(
+      <h1 className='App-title'>{text}</h1>
+    )
+  }
+}
 export default App;
