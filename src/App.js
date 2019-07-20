@@ -4,10 +4,23 @@ import './App.css';
 
 const welcome = 'Welcome to react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+class App extends Component {
+  
+
+    state = {
+      toggle: true
+    }
+    toggle = () =>{
+      this.setState({
+        toggle:!this.state.toggle
+      })
+    }
+    
+    render(){
+    
+      return (
+      <div className="App">
+       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload. <Welcome />
@@ -19,11 +32,17 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
         </a>
-      </header>
-    </div>
-  );
+        <button onClick={this.toggle}>CLick me </button>
+        {this.state.toggle?
+           <p>Show and Hide this</p>:<p></p>}
+          
+          Learn React
+          
+        </header>
+      </div>
+    );
+  }
 }
 
 class Welcome extends Component {
