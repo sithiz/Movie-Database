@@ -1,56 +1,38 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Movie from './Movies'
 
-const welcome = 'Welcome to react'
+const movies = [
+  {
+    id:1,
+    title: 'Starwars'
+  },
+  {
+    id:2,
+    title: 'spider man'
+  },
+  {
+    id:3,
+    title:'the third movie'
+  }
+];
 
 class App extends Component {
   
 
-    state = {
-      toggle: true
-    }
-    toggle = () =>{
-      this.setState({
-        toggle:!this.state.toggle
-      })
-    }
-    
     render(){
     
       return (
       <div className="App">
        <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. <Welcome />
-        </p>
-        <Welcome text={welcome}/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        </a>
-        <button onClick={this.toggle}>CLick me </button>
-        {this.state.toggle?
-           <p>Show and Hide this</p>:<p></p>}
-          
-          Learn React
-          
+        {movies.map( movie=> <Movie key={movie.id} movie={movie}/>)}
         </header>
       </div>
     );
   }
 }
 
-class Welcome extends Component {
-  render() {
-    const { text } = this.props;
-    return(
-      <h1 className='App-title'>{text}</h1>
-    )
-  }
-}
+
 export default App;
