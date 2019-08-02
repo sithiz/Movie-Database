@@ -7,16 +7,13 @@ export default class Movie extends Component {
         movie: PropTypes.shape({
             title: PropTypes.string.isRequired
         }),
-        desc: PropTypes.string
     }
-    static defaultProps = {
-        desc: 'Movie desrpiction not avaible'
-    }
+
     render(){
         return(
             <div>
                 <h3>{this.props.movie.title}</h3>
-                <p>{this.props.desc}</p>
+                
             </div>
         )
     }
